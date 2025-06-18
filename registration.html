@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ka">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>რეგისტრაცია - Healthy Basket</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="contact-icons">
+            <a href="tel:+995000000000"><img src="images/phone.png" alt="Phone" title="Call"></a>
+            <a href="mailto:info@healthybasket.ge"><img src="images/gmail.png" alt="Email" title="Email"></a>
+            <a href="https://maps.google.com" target="_blank"><img src="images/location.png" alt="Address"
+                    title="View address"></a>
+        </div>
+
+        <div class="logo">Healthy <span>Basket</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="registration.html">Registration</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contact">
+        <h1 class="section-title">რეგისტრაცია</h1>
+
+        <form action="registration.php" method="POST" class="contact-form">
+            <input type="text" name="name" placeholder="სახელი" required>
+            <input type="text" name="surname" placeholder="გვარი" required>
+            <input type="email" name="email" placeholder="ელ-ფოსტა" required>
+            <button type="submit">რეგისტრაცია</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Healthy Basket.</p>
+    </footer>
+</body>
+
+</html>

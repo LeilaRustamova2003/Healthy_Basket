@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart - Healthy Basket</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="logo">Healthy <span>Basket</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="registration.html">Registration</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="about.html">About</a></li>
+                <li>
+                    <a href="cart.html" style="display: flex; align-items: center;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Cart"
+                            style="width: 22px; margin-right: 5px;">
+                        <span id="cart-count">0</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main class="cart">
+        <h1 class="section-title">Your Cart</h1>
+        <div class="cart-container" id="cart-container"></div>
+        <h2 id="total-price"></h2>
+
+        <div class="cart-buttons" style="text-align: center; margin-top: 20px;">
+            <button onclick="cancelCart()" class="btn cancel">Cancel</button>
+            <button onclick="proceedToPayment()" class="btn next">Next</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Healthy Basket.</p>
+    </footer>
+
+    <script>
+        function cancelCart() {
+            localStorage.removeItem('cart');
+            window.location.href = 'shop.html';
+        }
+
+        function proceedToPayment() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            if (cart.length === 0) {
+                alert("Your cart is empty.");
+            } else {
+                window.location.href = 'payment.html';
+            }
+        }
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const count = cart.reduce((sum, item) => sum + item.qty, 0);
+            const countEl = document.getElementById("cart-count");
+            if (countEl) countEl.textContent = count;
+        }
+
+        updateCartCount();
+    </script>
+
+    <script src="js/cart.js"></script>
+</body>
+
+</html>

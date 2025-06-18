@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ka">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>შეკვეთის გაფორმება - Healthy Basket</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo">Healthy <span>Basket</span></div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="registration.html">Registration</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><a href="about.html">About</a></li>
+        <li>
+
+        </li>
+      </ul><a href="cart.html" style="display: flex; align-items: center;">
+        <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Cart"
+          style="width: 22px; margin-right: 5px;">
+        <span id="cart-count">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <main class="order-form-section">
+    <h1 class="section-title">შეკვეთის გაფორმება</h1>
+
+    <form action="payment.php" method="POST" class="order-form">
+      <input type="text" name="card" placeholder="ბარათის ნომერი" required>
+      <input type="text" name="location" placeholder="მდებარეობა" required>
+      <input type="tel" name="phone" placeholder="ტელეფონი" required>
+      <button type="submit" class="btn">შეკვეთის გაფორმება</button>
+    </form>
+
+    <?php
+    if (isset($_GET["status"])) {
+        if ($_GET["status"] == "success") {
+            echo "<p class='success-message'>✅ წარმატებით შეავსეთ შეკვეთა!</p>";
+        } else {
+            echo "<p class='error-message'>❌ მოხდა შეცდომა. გთხოვთ, სცადეთ თავიდან.</p>";
+        }
+    }
+    ?>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Healthy Basket. </p>
+  </footer>
+</body>
+
+</html>

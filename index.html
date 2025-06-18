@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Healthy Basket - Organic Foods</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+    <header>
+
+        <div class="contact-icons" id="contact-section">
+            <a href="tel:+99500000000"><img src="images/phone.png" alt="Phone" title="Call"></a>
+            <a href="mailto:info@healthybasket.ge"><img src="images/gmail.png" alt="Email" title="Email"></a>
+            <a href="https://maps.google.com" target="_blank"><img src="images/location.png" alt="Address"
+                    title="View address"></a>
+        </div>
+
+
+        <div class="logo">Healthy <span>Basket</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="registration.html">Registration</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ✅ TOP BANNER -->
+    <section class="top-banner">
+        <div class="swiper bannerSwiper">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <a href="shop.html" class="banner-item">
+                        <img src="images/banner1.jpg" alt="პროდუქტები">
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="about.html" class="banner-item">
+                        <img src="images/banner2.jpg" alt="ჩვენ შესახებ" />
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="#contact-section" class="banner-item">
+                        <img src="images/contact.jpg" alt="კონტაქტი" />
+                    </a>
+                </div>
+
+                <div class="swiper-slide">
+                    <a href="shop.html#discount-products">
+                        <img src="images/discount.jpg" alt="ფასდაკლება" />
+                    </a>
+
+                </div>
+
+
+            </div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>მოგესალმებით Healthy Basket-ში!</h1>
+            <p>ჩვენ გთავაზობთ მხოლოდ საუკეთესო ორგანულ ბოსტნეულს, ხილს და რძის პროდუქტებს.</p>
+            <p>შეარჩიეთ ჯანმრთელი ცხოვრების სტილისთვის აუცილებელი საკვები პროდუქტები.</p>
+            <a href="registration.html" class="btn">შესვლა</a>
+        </div>
+        <div class="hero-img">
+            <img src="images/organic-basket.jpg" alt="Organic Food Basket" />
+        </div>
+    </section>
+
+    <!-- SLIDER SECTION -->
+    <section class="hero-slider">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-image: url('images/slide1.jpg');">
+                    <div class="slide-content">
+                        <h2>Fresh & Organic</h2>
+                        <p>Delivered directly from local farms</p>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="background-image: url('images/slide2.jpg');">
+                    <div class="slide-content">
+                        <h2>Eat Healthy, Stay Fit</h2>
+                        <p>Seasonal fruits and vegetables just for you</p>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="background-image: url('images/slide3.jpg');">
+                    <div class="slide-content">
+                        <h2>Farm to Table</h2>
+                        <p>We support sustainable agriculture</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Healthy Basket.</p>
+    </footer>
+
+    <!-- JS -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+        });
+
+        var bannerSwiper = new Swiper(".bannerSwiper", {
+            loop: true,
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                }
+            }
+        });
+    </script>
+
+    <script>
+        window.addEventListener("load", function () {
+            if (window.location.hash === "#contact-section") {
+                const contactEl = document.getElementById("contact-section");
+                if (contactEl) {
+                    contactEl.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+        });
+    </script>
+
+
+
+</body>
+
+</html>

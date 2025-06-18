@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop - Healthy Basket</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <section class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search product..." />
+            <button onclick="searchProduct()">Search</button>
+        </section>
+        <div id="searchResults" class="product-grid"></div>
+
+        <div class="logo">Healthy <span>Basket</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="registration.html">Registration</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="about.html">About</a></li>
+                <li>
+                    <a href="cart.html" style="display: flex; align-items: center;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/107/107831.png" alt="Cart"
+                            style="width: 22px; margin-right: 5px;">
+                        <span id="cart-count">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2 id="discount-products" class="section-title">პროდუქტები</h2>
+    <div class="product-grid">
+        <!-- აქ მხოლოდ ფასდაკლებული პროდუქტები ან ფილტრი -->
+    </div>
+
+
+
+    <div class="filter-sort">
+        <select id="categoryFilter">
+            <option value="all">ყველა კატეგორია</option>
+            <option value="vegetable">ბოსტნეული</option>
+            <option value="fruit">ხილი</option>
+            <option value="dairy">რძის პროდუქტი</option>
+        </select>
+
+
+        <select id="priceSort">
+            <option value="default">დალაგება ფასით</option>
+            <option value="lowToHigh">დაბლიდან მაღლა</option>
+            <option value="highToLow">მაღლიდან დაბლა</option>
+            <option value="discount">ფასდაკლება</option>
+        </select>
+
+    </div>
+
+    <!-- Product Grid -->
+    <div id="productGrid" class="product-grid">
+        <!-- Products will be inserted dynamically with JS -->
+    </div>
+    </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Healthy Basket.</p>
+    </footer>
+
+    <script src="js/shop.js"></script>
+
+    <script>
+        const products = [
+            { name: "პომიდორი", price: 2.00, category: "vegetable", image: "images/tomato.jpg" },
+            { name: "კომბოსტო", price: 1.00, category: "vegetable", image: "images/cabbage.jpg", oldPrice: 1.50 },
+            { name: "ვაშლი", price: 2.20, category: "fruit", image: "images/apple.jpg" },
+            { name: "რძე", price: 5.00, category: "dairy", image: "images/milk.jpg" },
+            { name: "ყველი", price: 15.00, category: "dairy", image: "images/cheese.jpg", oldPrice: 20.00 },
+            { name: "მსხალი", price: 5.50, category: "fruit", image: "images/pear.jpg" },
+            { name: "კარაქი", price: 9.50, category: "dairy", image: "images/butter.jpg" },
+            { name: "ბანანი", price: 6.50, category: "fruit", image: "images/banan.jpg" },
+            { name: "კარტოფილი", price: 1.85, category: "vegetable", image: "images/potato.jpg", oldPrice: 2.30 },
+            { name: "ყურძენი", price: 8.50, category: "fruit", image: "images/graps.jpg" },
+            { name: "ლობიო", price: 9.00, category: "vegetable", image: "images/bean.jpg" },
+            { name: "ალუბალი", price: 8.50, category: "fruit", image: "images/cerry.jpg", oldPrice: 12.00 },
+            { name: "სტაფილო", price: 4.00, category: "vegetable", image: "images/carrot.jpg" },
+            { name: "ხაჭო", price: 15.00, category: "dairy", image: "images/Cottage_cheese.jpg" },
+            { name: "ლიმონი", price: 8.50, category: "fruit", image: "images/lemon.jpg" },
+            { name: "საზამთრო", price: 9.00, category: "fruit", image: "images/watermelon.jpg" },
+            { name: "სალათა", price: 5.00, category: "vegetable", image: "images/lettuce.jpg" },
+        ];
+
+        function searchProduct() {
+            const query = document.getElementById("searchInput").value.toLowerCase();
+            const results = products.filter(p => p.name.toLowerCase().includes(query));
+            const container = document.getElementById("searchResults");
+
+            container.innerHTML = "";
+            if (results.length === 0) {
+                container.innerHTML = "<p>პროდუქტი ვერ მოიძებნა.</p>";
+                return;
+            }
+
+            results.forEach(product => {
+                const card = document.createElement("div");
+                card.className = "product-card";
+                card.innerHTML = `
+              <img src="${product.image}" alt="${product.name}">
+              <h3>${product.name}</h3>
+              <p>₾${product.price.toFixed(2)} / კგ</p>
+            `;
+                container.appendChild(card);
+            });
+        }
+    </script>
+</body>
+
+</html>
